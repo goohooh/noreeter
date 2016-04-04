@@ -63,3 +63,6 @@ target/
 
 # .env
 .env
+
+# swp, swo
+*.sw[po]
