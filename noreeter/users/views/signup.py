@@ -12,8 +12,8 @@ class SignupView(TemplateView):
         password = request.POST.get("password")
         email = request.POST.get("email")
         profile = request.POST.get("profile")
-        profile_image = request.POST.get("profile_image")
-
+        profile_image = request.FILES.get("profile_image")
+        # from IPython import embed; embed()
         get_user_model().objects.create_user(
             username=username,
             password=password,
