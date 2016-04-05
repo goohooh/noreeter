@@ -1,3 +1,5 @@
 -r production.txt
 ipython
 pep8
+django-extensions
+django-debug-toolbar
