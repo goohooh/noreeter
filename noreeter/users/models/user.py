@@ -4,7 +4,10 @@ from django.db import models
 
 class User(AbstractUser):
 
-    profile_image = models.ImageField()
+    profile_image = models.ImageField(
+        blank=True,
+        null=True,
+    )
 
     profile = models.TextField()
 
