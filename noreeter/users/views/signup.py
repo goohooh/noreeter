@@ -13,7 +13,6 @@ class SignupView(TemplateView):
         email = request.POST.get("email")
         profile = request.POST.get("profile")
         profile_image = request.FILES.get("profile_image")
-        # from IPython import embed; embed()
         get_user_model().objects.create_user(
             username=username,
             password=password,
