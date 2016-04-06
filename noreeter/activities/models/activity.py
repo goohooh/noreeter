@@ -1,6 +1,8 @@
 from django.conf import settings
 from django.db import models
 
+from interests.models import Interest
+
 
 class Activity(models.Model):
     host = models.ForeignKey(
@@ -20,6 +22,11 @@ class Activity(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True, )
     updated_at = models.DateTimeField(auto_now=True, )
+
+    category_set = models.ManyToManyField(
+        Interest,
+        related_name="activity_set",
+    )
 
     def __str__(self):
         return self.title
