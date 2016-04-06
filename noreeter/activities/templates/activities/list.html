@@ -5,7 +5,9 @@
 <ul>
   {% for activity in activities %}
     <li>
-      {{ activity.title }}
+    <a href="{% url "activity" activity.id %}">
+        {{ activity.title }}
+      </a>
     </li> 
   {% endfor %}
 </ul>

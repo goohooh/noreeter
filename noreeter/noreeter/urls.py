@@ -6,7 +6,7 @@ from django.conf.urls.static import static
 
 from .views import HomeView
 from users.views import LoginView, LogoutView, SignupView, ProfileView
-from activities.views import ActivityListView
+from activities.views import ActivityListView, ActivityDetailView
 
 
 urlpatterns = [
@@ -19,4 +19,5 @@ urlpatterns = [
     url(r'^profile/(?P<slug>\w+)/$', ProfileView.as_view(), name="profile"),
 
     url(r'^activities/$', ActivityListView.as_view(), name="activities"),
+    url(r'^activities/(?P<pk>\w+)/$', ActivityDetailView.as_view(), name="activity")
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
