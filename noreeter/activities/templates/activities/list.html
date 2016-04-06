@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block main %}
+<h2>Activity List</h2>
+<ul>
+  {% for activity in activities %}
+    <li>
+      {{ activity.title }}
+    </li> 
+  {% endfor %}
+</ul>
+{% endblock %}
