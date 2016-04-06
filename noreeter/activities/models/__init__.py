@@ -1,1 +1,1 @@
-from .aictivity import Activity
+from .activity import Activity
