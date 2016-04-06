@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'noreeter',
     'users',
     'interests',
+    'activities',
 ]
 
 
