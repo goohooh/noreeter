@@ -11,7 +11,6 @@ class ActivityCreateView(CreateView):
 
     form_class = ActivityRegistForm
     template_name = "activities/create.html"
-    success_url = '/activities/'
 
     def form_valid(self, form):
         form.instance.host = self.request.user
