@@ -1,5 +1,5 @@
 migrate:
-	python noreeter/manage.py makemigrations users interests
+	python noreeter/manage.py makemigrations users interests activities
 	python noreeter/manage.py migrate
 
 clean:

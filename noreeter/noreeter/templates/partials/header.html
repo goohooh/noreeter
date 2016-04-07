@@ -1,9 +1,13 @@
 <header>
-  <h1>header section</h1>
+<h1><a href="{% url "home" %}">header section</a></h1>
   {% if request.user.is_authenticated %}
-    <p>{{ request.user.username }}님 환영합니다.</p>
-    <a href="{% url "logout" %}">로그아웃</a>
-    <a href="{% url "profile" request.user.username %}">프로필</a>
+  <p>{{ request.user.username }}님 환영합니다.</p>
+  <ul>
+    <li><a href="{% url "logout" %}">로그아웃</a></li>
+    <li><a href="{% url "profile" request.user.username %}">프로필</a></li>
+    <li><a href="{% url "activities" %}">활동 목록</a></li>
+    <li><a href="{% url "create-activity" %}">활동 등록</a></li>
+  </ul>
   {% else %}
     <a href="{% url "login" %}">로그인</a>
     <a href="{% url "signup" %}">회원가입</a>
