@@ -4,6 +4,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE-Edge">
   <meta charset="uft-8">
   <title>{% block title %}{% endblock %} | Noreeter</title>
+  {% load pipeline %}
+  {% javascript 'main' %}
+  {% stylesheet 'main' %}
 </head>
 <body>
   {% include "partials/header.html" %}

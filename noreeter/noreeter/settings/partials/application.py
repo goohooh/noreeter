@@ -13,7 +13,7 @@ BASE_DIR = os.path.dirname(
 PROJECT_ROOT_DIR = os.path.dirname(BASE_DIR)
 
 
-SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 DEBUG = True
 
@@ -32,6 +32,8 @@ INSTALLED_APPS = [
     'users',
     'interests',
     'activities',
+
+    'pipeline',
 ]
 
 
