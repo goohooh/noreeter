@@ -7,4 +7,16 @@
   <p>{{ activity.content }}</p>
   <p>모임시각: {{ activity.due_datetime }}</p>
   <p>모임종류: {{ activity.category_set.first }}</p>
+  <h3>Comments</h3>
+  <ul>
+  {% for comment in activity.comment_set.all %}
+  <li>{{ comment.content }}</li>
+  {% endfor %}
+  </ul>
+  <h4>댓글 쓰기</h4>
+  <form action="{% url "activity-comment" activity.id %}" method="post" />
+      {% csrf_token %}
+      <input type="text" name="content" required />
+      <button type="submit">댓글 쓰기</button>
+  </form>
 {% endblock %}
