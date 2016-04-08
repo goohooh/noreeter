@@ -15,6 +15,6 @@ class Town(models.Model):
         max_length=8,
     )
 
-    town = models.CharField(
+    town_name = models.CharField(
         max_length=8,
     )
