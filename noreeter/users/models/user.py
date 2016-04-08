@@ -20,7 +20,7 @@ class User(AbstractUser):
         auto_now=True,
     )
 
-    location = models.ForeignKey(
+    town = models.ForeignKey(
         Town,
         blank=True,
         null=True,
