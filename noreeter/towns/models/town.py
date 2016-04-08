@@ -18,3 +18,6 @@ class Town(models.Model):
     town_name = models.CharField(
         max_length=8,
     )
+
+    def __str__(self):
+        return self.full_address
