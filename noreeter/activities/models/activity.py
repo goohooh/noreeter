@@ -3,6 +3,7 @@ from django.core.urlresolvers import reverse
 from django.db import models
 
 from interests.models import Interest
+from towns.models import Town
 
 
 class Activity(models.Model):
@@ -30,6 +31,12 @@ class Activity(models.Model):
     )
 
     due_datetime = models.DateTimeField(
+        blank=True,
+        null=True,
+    )
+
+    town = models.ForeignKey(
+        Town,
         blank=True,
         null=True,
     )
