@@ -25,6 +25,12 @@ PIPELINE = {
             ),
             'Output_filename': 'css/noreeter.css',
         },
+        'vendor': {
+            'souce_filenames': (
+                'css/bootstrap.min.css',
+            ),
+            'Output_filename': 'css/vendor.css',
+        },
     },
     'JAVASCRIPT': {
         'main': {
