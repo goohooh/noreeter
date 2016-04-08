@@ -1,9 +1,10 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import CreateView
 
 from activities.models import Activity, Comment
 
 
-class ActivityCommentCreateView(CreateView):
+class ActivityCommentCreateView(LoginRequiredMixin, CreateView):
     model = Comment
     fields = [
         'content',

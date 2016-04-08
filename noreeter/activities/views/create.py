@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.urlresolvers import reverse
 from django.shortcuts import redirect
 from django.views.generic import CreateView, FormView
@@ -6,7 +7,7 @@ from activities.forms import ActivityRegistForm
 from activities.models import Activity
 
 
-class ActivityCreateView(CreateView):
+class ActivityCreateView(LoginRequiredMixin, CreateView):
     model = Activity
 
     form_class = ActivityRegistForm
