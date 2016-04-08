@@ -1,6 +1,8 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 
+from towns.models import Town
+
 
 class User(AbstractUser):
 
@@ -16,4 +18,10 @@ class User(AbstractUser):
     )
     updated_at = models.DateTimeField(
         auto_now=True,
+    )
+
+    town = models.ForeignKey(
+        Town,
+        blank=True,
+        null=True,
     )

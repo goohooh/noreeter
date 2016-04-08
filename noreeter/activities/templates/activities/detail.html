@@ -7,6 +7,7 @@
   <p>{{ activity.content }}</p>
   <p>모임시각: {{ activity.due_datetime }}</p>
   <p>모임종류: {{ activity.category_set.first }}</p>
+  <p>동네: {{ activity.town.town_name }}</p>
   <h3>Comments</h3>
   <ul>
   {% for comment in activity.comment_set.all %}

@@ -8,4 +8,5 @@ class ActivityRegistForm(ModelForm):
         model = Activity
         exclude = [
             'host',
+            'town',
         ]
