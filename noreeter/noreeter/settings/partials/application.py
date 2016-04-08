@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'users',
     'interests',
     'activities',
+    'towns',
 
     'pipeline',
 ]
