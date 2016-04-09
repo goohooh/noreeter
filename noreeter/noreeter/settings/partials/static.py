@@ -26,8 +26,8 @@ PIPELINE = {
             'Output_filename': 'css/noreeter.css',
         },
         'vendor': {
-            'souce_filenames': (
-                'css/bootstrap.min.css',
+            'source_filenames': (
+                'css/vendor/bootstrap.min.css',
             ),
             'Output_filename': 'css/vendor.css',
         },
