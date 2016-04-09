@@ -38,6 +38,14 @@ PIPELINE = {
                 'js/*.js',
             ),
             'output_filename': 'js/noreeter.js',
-        }
-    }
+        },
+        'vendor': {
+            'source_filenames': (
+                'js/vendor/bootstrap.min.js',
+            ),
+            'Output_filename': 'js/vendor.js',
+        },
+    },
 }
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'

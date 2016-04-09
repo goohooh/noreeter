@@ -74,6 +74,13 @@ db.sqlite3
 *.css
 css/
 vendor/
+fonts/
 gulpfile.js
 config.js
 node_modules/
+
+# .DS_Store
+*.DS_Store
+
+# images
+img/

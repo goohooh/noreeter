@@ -1,11 +1,11 @@
+{% load pipeline %}
 <!DOCTYPE html>
 <html>
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE-Edge">
   <meta charset="uft-8">
   <title>{% block title %}{% endblock %} | Noreeter</title>
-  {% load pipeline %}
-  {% javascript 'main' %}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
   {% stylesheet 'vendor' %}
   {% stylesheet 'main' %}
 </head>
@@ -18,5 +18,8 @@
   </main>
 
   {% include "partials/footer.html" %}
+  <script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>
+  {% javascript 'vendor' %}
+  {% javascript 'main' %}
 </body>
 </html>

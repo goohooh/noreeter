@@ -27,7 +27,6 @@ class Activity(models.Model):
 
     category_set = models.ManyToManyField(
         Interest,
-        # related_name="activity_set",
     )
 
     due_datetime = models.DateTimeField(

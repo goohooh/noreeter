@@ -1,14 +1,24 @@
 {% extends "base.html" %}
 
 {% block main %}
-<h2>Activity List</h2>
-<ul>
-  {% for activity in activities %}
-    <li>
-    <a href="{% url "activity" activity.id %}">
-        {{ activity.title }}
-      </a>
-    </li> 
-  {% endfor %}
-</ul>
+
+{% for activity in activities %}
+<div class="row">
+  <div class="col-xs-10 col-md-6 col-xs-offset-1 col-md-offset-3">
+    <div class="thumbnail">
+        <a href="{% url "activity" activity.id %}">
+          <img src="{{ activity.image.url }}" alt="{{ activity.title }}">
+        </a>
+        <img class="thumbnail_profile_image" src="{{ activity.host.profile_image.url }}" alt="{{ actiity.host.username }}"/>
+      <div class="caption">
+        <a href="{% url "activity" activity.id %}">
+          <h3>{{ activity.title }}</h3>
+        </a>
+          <p>모임 시각: {{ activity.due_datetime }}</p>
+          <p><a href="{% url "activity" activity.id %}" class="btn btn-primary" role="button">자세히 보기</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
 {% endblock %}

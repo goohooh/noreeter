@@ -1,23 +1,53 @@
 {% extends "base.html" %}
 
 {% block main %}
-  <h2>Activity Detail</h2>
-  <img src="{{ activity.image.url }}" />
-  <h3>{{ activity.title }}</h3>
-  <p>{{ activity.content }}</p>
-  <p>모임시각: {{ activity.due_datetime }}</p>
-  <p>모임종류: {{ activity.category_set.first }}</p>
-  <p>동네: {{ activity.town.town_name }}</p>
-  <h3>Comments</h3>
-  <ul>
-  {% for comment in activity.comment_set.all %}
-  <li>{{ comment.content }}</li>
-  {% endfor %}
-  </ul>
-  <h4>댓글 쓰기</h4>
-  <form action="{% url "activity-comment" activity.id %}" method="post" />
-      {% csrf_token %}
-      <input type="text" name="content" required />
-      <button type="submit">댓글 쓰기</button>
-  </form>
+<div class="container">
+  <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading"> 
+        <h2>{{ activity.title }}</h2>
+        <p>{{ activity.town.town_name }}</p>
+      </div>
+      <div class="panel-body">
+        <img class="detail_image" src="{{ activity.image.url }}" />
+        <p class="detail_content">{{ activity.content }}</p>
+      </div>
+
+      <!-- List group -->
+      <ul class="list-group">
+          <li class="list-group-item">
+            <p>모임시각: {{ activity.due_datetime }}</p>
+          </li>
+          <li class="list-group-item">
+            <p>모임종류: {{ activity.category_set.first }}</p>
+          </li>
+      </ul>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+          <h5>전체 댓글 ({{ activity.comment_set.count }})</h5>
+      </div>
+      <div class="panel-body">
+        <table class="table">
+          <tbody>
+          {% for comment in activity.comment_set.all %}
+            <tr>
+              <td class="comment_table_data comment_user">{{ comment.user.username }}</td>
+              <td class="comment_table_data comment_content">{{ comment.content }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+        </table>
+      </div>
+      <div class="panel-footer">
+        <form action="{% url "activity-comment" activity.id %}" method="post" />
+          {% csrf_token %}
+          <input class="input_comment" type="text" name="content" required />
+          <button class="btn btn-primary btn-sm" type="submit">댓글 쓰기</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
