@@ -36,6 +36,7 @@ INSTALLED_APPS = [
 
     'pipeline',
     'crispy_forms',
+    'rest_framework',
 ]
 
 
