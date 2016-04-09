@@ -67,6 +67,11 @@ target/
 # swp, swo
 *.sw[po]
 
+# database
+db.sqlite3
+
 # static files
 vendor/
 css/
+gulpfile.js
+node_modules/
