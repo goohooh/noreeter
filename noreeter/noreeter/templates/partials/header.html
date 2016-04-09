@@ -1,23 +1,26 @@
-<header class="row">
-<div class="container">
-  <div class="col-xs-4">
-    <h1><a href="{% url "home" %}">header section</a></h1>
-  </div>
-  <div class="col-xs-4">
-    <ul>
-      <li><a href="{% url "activities" %}">활동 목록</a></li>
-      <li><a href="{% url "create-activity" %}">활동 등록</a></li>
-    </ul>
-  </div>
-  <div class="col-xs-4">
-  {% if request.user.is_authenticated %}
-    <p>{{ request.user.username }}님 환영합니다.</p>
-    <a href="{% url "logout" %}">로그아웃</a>
-    <a href="{% url "profile" request.user.username %}">프로필</a>
-  {% else %}
-    <a href="{% url "login" %}">로그인</a>
-    <a href="{% url "signup" %}">회원가입</a>
-  {% endif %}
-  </div>
-</div>
-</header>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <i class="fa fa-bars"></i>
+      </button>
+      <a class="navbar-brand" href="{% url "home" %}">노리터</a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a href="{% url "activities" %}">활동 목록</a></li>
+        <li><a href="{% url "create-activity" %}">활동 등록</a></li>
+      </ul>
+        {% if request.user.is_authenticated %}
+        <ul class="nav navbar-nav navbar-right">
+          <li class="greetings"><p>Welcome, {{ request.user.username }}!!</p></li>
+          <li><a href="{% url "logout" %}">로그아웃</a></li>
+          <li><a href="{% url "profile" request.user.username %}">프로필</a></li>
+        {% else %}
+          <li><a href="{% url "login" %}">로그인</a></li>
+          <li><a href="{% url "signup" %}">회원가입</a></li>
+        {% endif %}
+      </ul>
+    </div><!-- /.nav-collapse -->
+  </div><!-- /.container -->
+</nav><!-- /.navbar -->
