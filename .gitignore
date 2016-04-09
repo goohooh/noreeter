@@ -61,8 +61,19 @@ target/
 #Ipython Notebook
 .ipynb_checkpoints
 
-# .env
+# autoenv
 .env
 
 # swp, swo
 *.sw[po]
+
+# database
+db.sqlite3
+
+# static files
+*.css
+css/
+vendor/
+gulpfile.js
+config.js
+node_modules/
