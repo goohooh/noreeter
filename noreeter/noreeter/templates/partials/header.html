@@ -11,8 +11,8 @@
         <li><a href="{% url "activities" %}">활동 목록</a></li>
         <li><a href="{% url "create-activity" %}">활동 등록</a></li>
       </ul>
+      <ul class="nav navbar-nav navbar-right">
         {% if request.user.is_authenticated %}
-        <ul class="nav navbar-nav navbar-right">
           <li class="greetings"><p>Welcome, {{ request.user.username }}!!</p></li>
           <li><a href="{% url "logout" %}">로그아웃</a></li>
           <li><a href="{% url "profile" request.user.username %}">프로필</a></li>
