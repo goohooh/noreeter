@@ -71,7 +71,8 @@ target/
 db.sqlite3
 
 # static files
+*.css
 vendor/
-css/
 gulpfile.js
+config.js
 node_modules/
