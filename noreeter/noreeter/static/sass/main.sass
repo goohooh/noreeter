@@ -2,7 +2,7 @@
 @import "partials/footer"
 
 @import "features/carousel"
-
+@import "features/common"
 
 #main
     padding-top: 70px
@@ -22,6 +22,27 @@
         height: 60px
         border: 2px solid #fff
             radius: 50%
+
+.detail_image
+    width: 100%
+
+.detail_content
+    margin-top: 10px
+    border-top: 1px solid #eee
+    
+.table
+    td.comment_table_data
+        border:
+            top: none
+            bottom: 1px dashed #ddd
+
+    td.comment_user
+        width: 20%
+    td.comment_content
+        width: 80%
+
+.input_comment
+    width: 80%
 
 @media all and ( max-width: 749px )
     .greetings p
