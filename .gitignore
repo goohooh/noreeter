@@ -72,6 +72,7 @@ db.sqlite3
 
 # static files
 *.css
+css/
 vendor/
 gulpfile.js
 config.js
