@@ -74,6 +74,7 @@ db.sqlite3
 *.css
 css/
 vendor/
+fonts/
 gulpfile.js
 config.js
 node_modules/

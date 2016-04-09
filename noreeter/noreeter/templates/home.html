@@ -12,4 +12,15 @@ Home
       <p><a class="btn btn-primary btn-lg" href="{% url "activities" %}" role="button">우리동네 둘러보기</a></p>
     </div>
 </div>
+<div class="row">
+<div class="carousel">
+    <a href="#prev" class="prev" title="이전 슬라이드"><i class="fa fa-arrow-circle-left"></i></a>
+    <a href="#next" class="next" title="다음 슬라이드"><i class="fa fa-arrow-circle-right"></i></a>
+    <ul>
+        {% for activity in activities %}
+        <li><a href="{% url "activity" activity.id %}" style="background-image:url({{ activity.image.url }})"></a></li>
+        {% endfor %}
+    </ul>
+</div>
+</div>
 {% endblock %}

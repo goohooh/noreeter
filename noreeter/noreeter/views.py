@@ -1,5 +1,9 @@
-from django.views.generic import TemplateView
+from django.views.generic import ListView
+
+from activities.models import Activity
 
 
-class HomeView(TemplateView):
+class HomeView(ListView):
+    model = Activity
     template_name = "home.html"
+    context_object_name = "activities"

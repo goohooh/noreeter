@@ -1,10 +1,7 @@
 jQuery(function ($) {
-//    var $w = $(window).width(),
-//        $greetings = $('.greetings');
-//
-//    $(window).resize(function () {
-//        if ( $w < 992 ) {
-//            $greetings.toggleClass('greeting_off');
-//        }
-//    });
+    $('.carousel').carousel({
+        interval: 2000,
+        duration: 0,
+        autoStart: true
+    });
 });
