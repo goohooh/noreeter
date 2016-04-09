@@ -5,5 +5,11 @@ Home
 {% endblock %}
 
 {% block main %}
-<h1>Home Page</h1>
+<div class="container">
+    <div class="jumbotron">
+      <h1>동네가 놀이터다!</h1>
+      <p>매일 새로운 동네 친구들과 다양한 활동을 경험해 보세요!</p>
+      <p><a class="btn btn-primary btn-lg" href="{% url "activities" %}" role="button">우리동네 둘러보기</a></p>
+    </div>
+</div>
 {% endblock %}
