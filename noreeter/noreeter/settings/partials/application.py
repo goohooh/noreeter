@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'towns',
 
     'pipeline',
+    'crispy_forms',
 ]
 
 
