@@ -9,6 +9,7 @@
         <a href="{% url "activity" activity.id %}">
           <img src="{{ activity.image.url }}" alt="{{ activity.title }}">
         </a>
+        <img class="thumbnail_profile_image" src="{{ activity.host.profile_image.url }}" alt="{{ actiity.host.username }}"/>
       <div class="caption">
         <a href="{% url "activity" activity.id %}">
           <h3>{{ activity.title }}</h3>
