@@ -1,57 +1,17 @@
-.navbar
-    border-bottom: 1px solid #aaa
-    background: #fff
-    box-shadow: 0 3px 3px #ccc
+@import "partials/header"
+@import "partials/footer"
 
-.greetings
-    p
-        margin: 0
-        padding: 15px
-        color: #666
-    &.greeting_off
-        display: none
+@import "features/carousel"
 
-footer
-    background: #333
-    color: #fff
 
 #main
-    padding-top: 50px
+    padding-top: 70px
 
-.carousel 
-    position: relative
-    width: 100%
-    height: 400px
-    overflow: hidden
+.thumbnail
+    border-radius: 0
+    img
+        width: 100%
 
-    a
-        position: absolute
-
-    a.prev
-        left: -20px
-
-    a.next
-        right: -20px
-    ul
-        list-style: none
-        margin: 0
-        padding: 0
-        white-space: nowrap
-        height: 100%
-            
-        li
-            display: inline-block
-            width: 50%
-            height: 100%
-            transition-duration: 2.0s cubic-bezier(0.25, 0.25, 0.25)
-            
-            a
-                display: block
-                width: 100%
-                height: 100%
-                background-size: cover
-                background-position: center
-                background-repeat: no-repeat
 
 @media all and ( max-width: 749px )
     .greetings p
