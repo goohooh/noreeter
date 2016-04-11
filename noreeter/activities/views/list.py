@@ -8,3 +8,4 @@ class ActivityListView(LoginRequiredMixin, ListView):
     model = Activity
     template_name = "activities/list.html"
     context_object_name = "activities"
+    ordering = '-updated_at'
