@@ -47,3 +47,20 @@ class UserTownSetForm(forms.ModelForm):
         super(UserTownSetForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_tag = False
+
+
+class LoginForm(forms.ModelForm):
+
+    password = forms.CharField(widget=forms.PasswordInput)
+
+    class Meta:
+        model = get_user_model()
+        fields = [
+            'username',
+            'password',
+        ]
+
+    def __init__(self, *args, **kwargs):
+        super(LoginForm, self).__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_tag = False
