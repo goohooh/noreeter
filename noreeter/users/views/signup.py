@@ -10,3 +10,4 @@ class SignupView(CreateView):
     model = get_user_model()
     template_name = "users/signup.html"
     form_class = UserRegistForm
+    success_url = "/town/set/"

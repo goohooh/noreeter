@@ -1,1 +1,1 @@
-from .form import UserRegistForm
+from .form import UserRegistForm, UserTownSetForm
