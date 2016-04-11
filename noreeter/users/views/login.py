@@ -3,9 +3,16 @@ from django.core.urlresolvers import reverse
 from django.shortcuts import redirect
 from django.views.generic import TemplateView
 
+from users.forms import LoginForm
+
 
 class LoginView(TemplateView):
     template_name = "users/login.html"
+
+    def get_context_data(self):
+        context = super(LoginView, self).get_context_data()
+        context["form"] = LoginForm()
+        return context
 
     def post(self, request):
         username = request.POST.get("username")

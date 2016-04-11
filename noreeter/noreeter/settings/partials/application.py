@@ -36,6 +36,7 @@ INSTALLED_APPS = [
 
     'pipeline',
     'crispy_forms',
+    'rest_framework',
 ]
 
 
@@ -87,3 +88,9 @@ USE_TZ = True
 DATETIME_INPUT_FORMATS = [
     '%Y-%m-%d %H:%M',     # '2006-10-25 14:30'
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ('rest_framework.filters.DjangoFilterBackend',)
+}
+
+CRISPY_FAIL_SILENTLY = not DEBUG
