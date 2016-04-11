@@ -1,9 +1,39 @@
 {% extends "base.html" %}
 
 {% block main %}
-<h2>{{ user.username }} 님의 프로필 페이지</h2>
-<img src="{{ user.profile_image.url }}" alt="profile image" />
-<p>{{ user.profile }}</p>
-<p>{{ user.email }}</p>
-<p>{{ user.town }}</p>
+<div class="container">
+  <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+    <div class="panel panel-default">
+      <div class="panel-heading"> 
+      <h2>{{ user.username }} 님의 프로필 페이지</h2>
+      </div>
+      <div class="panel-body">
+        <img src="{{ user.profile_image.url }}" alt="profile image" />
+        <h3>자기 소개</h3>
+        <p>{{ user.profile }}</p>
+        <p>{{ user.email }}</p>
+        <p>{{ user.town.full_address }}</p>
+        {% if request.user == user %}
+        <a href="{% url "towns" %}">거주지 변경</a>
+        {% endif %}
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading"> 
+        <h2>{{ user.username }}님이 주최한 활동</h2>
+      </div>
+      <div class="panel-body">
+        <ul>
+        {% for activity in user.activity_set.all %}
+        <li>
+        {% for category in activity.category_set.all %} 
+        <span>{{ category }}</span>
+        {% endfor %}
+        | {{ activity.title }}</li>
+        {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
