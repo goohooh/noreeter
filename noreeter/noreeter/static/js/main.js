@@ -19,7 +19,6 @@ jQuery(function ($) {
     }
 
     $search_town.on('keyup', function(event) {
-        console.log('keyup!!');
         getTownList();
     });
 

@@ -12,7 +12,13 @@ class UserRegistForm(forms.ModelForm):
 
     class Meta:
         model = get_user_model()
-        fields = '__all__'
+        fields = [
+            'username',
+            'password',
+            'email',
+            'profile_image',
+            'profile',
+        ]
 
     def __init__(self, *args, **kwargs):
         super(UserRegistForm, self).__init__(*args, **kwargs)
