@@ -9,11 +9,6 @@ from users.forms import LoginForm
 class LoginView(TemplateView):
     template_name = "users/login.html"
 
-    def get_context_data(self):
-        context = super(LoginView, self).get_context_data()
-        context["form"] = LoginForm()
-        return context
-
     def post(self, request):
         username = request.POST.get("username")
         password = request.POST.get("password")
@@ -35,3 +30,8 @@ class LoginView(TemplateView):
                 next_page_name=next_page,
             )
         )
+
+    def get_context_data(self):
+        context = super(LoginView, self).get_context_data()
+        context["form"] = LoginForm()
+        return context
