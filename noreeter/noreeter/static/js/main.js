@@ -37,6 +37,25 @@ jQuery(function ($) {
         });
     }
 
+    function checkParticipationState () {
+        var $current_page_pathname = $(location).attr('pathname');
+        $.ajax({
+            type: 'GET',
+            url: '/api' + $current_page_pathname + 'participate/',
+            success: function (data) {
+                if (data.participation_state) {
+                    console.log("I'm already in!!");
+                } else if ( data.is_full ) {
+                    console.log('sorry, already full...');
+                } else if ( !data.is_full ) {
+                    console.log('you can join us!!');
+                }
+            }
+        });
+    }
+
+    checkParticipationState();
+
     function participateActivity () {
         var $current_page_pathname = $(location).attr('pathname');
 

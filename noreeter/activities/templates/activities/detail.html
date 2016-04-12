@@ -10,6 +10,7 @@
         {% for category in activity.category_set.all %}
         <p>{{ category }} </p>
         {% endfor %}
+        <p>주최자: {{ activity.host.username }}</p>
       </div>
       <div class="panel-body">
         <img class="detail_image" src="{{ activity.image.url }}" />
