@@ -9,4 +9,6 @@ class ActivityRegistForm(ModelForm):
         exclude = [
             'host',
             'town',
+            'participant_set',
+            'is_full',
         ]
