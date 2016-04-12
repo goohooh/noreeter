@@ -40,6 +40,11 @@ class Activity(models.Model):
         null=True,
     )
 
+    participant_set = models.ManyToManyField(
+        settings.AUTH_USER_MODEL,
+        related_name="participate_set"
+    )
+
     def __str__(self):
         return self.title
 
