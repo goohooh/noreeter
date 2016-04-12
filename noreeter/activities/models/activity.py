@@ -49,6 +49,12 @@ class Activity(models.Model):
         default=False,
     )
 
+    @property
+    def num_of_participant(self):
+        return self.participant_set.count()
+
+    max_num_of_participant = models.IntegerField(default=0)
+
     def __str__(self):
         return self.title
 

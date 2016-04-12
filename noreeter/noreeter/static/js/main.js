@@ -38,7 +38,7 @@ jQuery(function ($) {
     }
 
     function participateActivity () {
-        var $activityID = $('#activityID').data('activityid');
+        var $current_page_pathname = $(location).attr('pathname');
 
         function csrfSafeMethod(method) {
             // these HTTP methods do not require CSRF protection
@@ -54,9 +54,9 @@ jQuery(function ($) {
 
         $.ajax({
             type: 'POST',
-            url: '/api/participate/', 
+            url: '/api' + $current_page_pathname + 'participate/', 
             data: {
-                activityID: $activityID,
+                activityID: $current_page_pathname.split('/')[2],
             },
             success: function (some) {
                 console.log('join!!');
@@ -77,7 +77,5 @@ jQuery(function ($) {
         duration: 0,
         autoStart: true
     });
-
-
 
 });

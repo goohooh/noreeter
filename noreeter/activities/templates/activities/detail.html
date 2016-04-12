@@ -6,7 +6,7 @@
     <div class="panel panel-default">
       <!-- Default panel contents -->
       <div class="panel-heading"> 
-          <h2 id="activityID" data-activityID="{{ activity.id}}">{{ activity.title }}</h2>
+          <h2>{{ activity.title }}</h2>
         {% for category in activity.category_set.all %}
         <p>{{ category }} </p>
         {% endfor %}

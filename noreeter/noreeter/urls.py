@@ -20,7 +20,7 @@ urlpatterns = [
     url(r'^signup/$', SignupView.as_view(), name="signup"),
     url(r'^profile/(?P<slug>\w+)/$', ProfileView.as_view(), name="profile"),
 
-    url(r'^api/participate/$', ParticipateAPIView.as_view(), name="api-participate"),
+    url(r'^api/activities/(?P<pk>\d+)/participate/$', ParticipateAPIView.as_view(), name="api-participate"),
     url(r'^api/towns/$', TownListAPIView.as_view(), name="api-towns"),
     url(r'^town/set/$', TownSetView.as_view(), name="towns"),
 
