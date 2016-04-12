@@ -45,6 +45,10 @@ class Activity(models.Model):
         related_name="participate_set"
     )
 
+    is_full = models.BooleanField(
+        default=False,
+    )
+
     def __str__(self):
         return self.title
 
