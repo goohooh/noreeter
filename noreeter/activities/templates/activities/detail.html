@@ -19,20 +19,14 @@
 
       <!-- List group -->
       <ul class="list-group">
-          <li class="list-group-item">
-            <p>모임시각: {{ activity.due_datetime }}</p>
-          </li>
-          {% if activity.host != request.user %}
-            {% if not activity.is_full %}
-              <li class="list-group-item">
-              <button id="participate-button" class="btn btn-primary" data-toggle="modal" data-target="#complete-modal">참여하기</button>
-              </li>
-            {% else %}
-              <li class="list-group-item">
-              <button id="closed-button" class="btn btn-primary" disabled>마감</button>
-              </li>
-            {% endif %}
-          {% endif %}
+        <li class="list-group-item">
+          <p>모임시각: {{ activity.due_datetime }}</p>
+        </li>
+        {% if activity.host != request.user %}
+        <li class="list-group-item">
+          <button id="participate-button" class="btn btn-primary" data-toggle="modal" data-target="#complete-modal"></button>
+        </li>
+        {% endif %}
       </ul>
     </div>
     <div class="panel panel-default">
@@ -66,10 +60,10 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">모임 참여 상태</h4>
+        <h4 class="modal-title">모임 참여 알림</h4>
       </div>
       <div class="modal-body">
-        <p>참여가 완료되었습니다!!</p>
+        <p id='participate-modal-text'></p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

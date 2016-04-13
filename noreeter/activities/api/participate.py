@@ -26,10 +26,19 @@ class ParticipateAPIView(APIView):
     def post(self, request, *args, **kwargs):
         activity = Activity.objects.get(id=request.POST.get("activityID"))
         if activity.is_full:
-            return HttpResponse(status=412)
+            return Response(status=412)
         activity.participant_set.add(request.user)
         activity.num_of_participant + 1
         if activity.max_num_of_participant == activity.num_of_participant:
             activity.is_full = True
         activity.save()
-        return HttpResponse(status=201)
+        return Response(status=201)
+
+    def delete(self, request, *args, **kwargs):
+        activity = Activity.objects.get(id=self.kwargs["pk"])
+        user = request.user
+        activity.participant_set.remove(user)
+        if activity.is_full:
+            activity.is_full = False
+        activity.save()
+        return Response(status=204)

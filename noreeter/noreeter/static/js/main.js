@@ -1,6 +1,7 @@
 jQuery(function ($) {
     var $search_town = $('#id_search'),
         $towns = $('#id_result'),
+        $participate_modal_text = $('#participate-modal-text'),
         $participate_button = $('#participate-button');
 
     function getCookie(name) {
@@ -36,6 +37,10 @@ jQuery(function ($) {
             }
         });
     }
+    
+    $search_town.on('keyup', function(event) {
+        getTownList();
+    });
 
     function checkParticipationState () {
         var $current_page_pathname = $(location).attr('pathname');
@@ -44,11 +49,11 @@ jQuery(function ($) {
             url: '/api' + $current_page_pathname + 'participate/',
             success: function (data) {
                 if (data.participation_state) {
-                    console.log("I'm already in!!");
+                    $participate_button.html('취소').addClass('cancel').prop('disabled', false);
                 } else if ( data.is_full ) {
-                    console.log('sorry, already full...');
+                    $participate_button.html('마감').addClass('closed').prop('disabled', true);
                 } else if ( !data.is_full ) {
-                    console.log('you can join us!!');
+                    $participate_button.html('참여').addClass('join').prop('disabled', false);
                 }
             }
         });
@@ -77,18 +82,51 @@ jQuery(function ($) {
             data: {
                 activityID: $current_page_pathname.split('/')[2],
             },
-            success: function (some) {
-                console.log('join!!');
+            success: function (data) {
+                $participate_button.html('취소').removeClass('join').addClass('cancel').prop('disabled', false);
+                $participate_modal_text.html('참여가 완료 됐습니다!');
+            },
+            error: function (e) {
+                $participate_button.html('인원이 가득 찼습니다').prop('disabled', true);
+                $participate_modal_text.html('아쉽게도 방금 모집인원이 가득 찼습니다.');
+            }
+        });
+    }
+
+    function cancelActivity () {
+        var $current_page_pathname = $(location).attr('pathname');
+
+        function csrfSafeMethod(method) {
+            // these HTTP methods do not require CSRF protection
+            return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+        }
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader('X-CSRFToken', csrftoken);
+                }
+            }
+        });
+
+        $.ajax({
+            type: 'DELETE',
+            url: '/api' + $current_page_pathname + 'participate/', 
+            data: {
+                activityID: $current_page_pathname.split('/')[2],
+            },
+            success: function (return_data) {
+                $participate_button.html('참여').addClass('join').removeClass('cancel').removeClass('closed');
+                $participate_modal_text.html('참여가 취소 됐습니다.');
             },
         });
     }
 
-    $search_town.on('keyup', function(event) {
-        getTownList();
-    });
-
     $participate_button.on('click', function(event) {
-        participateActivity();
+        if ($participate_button.hasClass('cancel')) {
+            cancelActivity();
+        } else if ($participate_button.hasClass('join')) {
+            participateActivity();
+        }
     });
 
     $('.carousel').carousel({
