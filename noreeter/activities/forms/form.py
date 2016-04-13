@@ -35,15 +35,15 @@ class ActivityRegistForm(forms.ModelForm):
         self.helper.form_tag = False
         self.fields['title'].label = '제목'
         self.fields['content'].label = '본문'
+        self.fields['category_set'].label = '카테고리'
         self.fields['image'].label = '이미지'
         self.fields['due_datetime'].label = '모임 시간'
-        self.fields['category_set'].label = '카테고리'
-        self.fields['max_num_of_participant'].label = '모집인원'
+        self.fields['max_num_of_participant'].label = '최대 모집인원'
         self.helper.layout = Layout(
             'title',
             'content',
+            'category_set',
             'image',
             'due_datetime',
-            'category_set',
             'max_num_of_participant',
         )
