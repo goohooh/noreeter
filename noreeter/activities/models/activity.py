@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.core.urlresolvers import reverse
+from django.core.validators import MinValueValidator
 from django.db import models
 
 from interests.models import Interest
@@ -41,11 +42,14 @@ class Activity(models.Model):
         default=False,
     )
 
+    max_num_of_participant = models.PositiveSmallIntegerField(
+        validators=[MinValueValidator(1)],
+        default=1,
+    )
+
     @property
     def num_of_participant(self):
         return self.participant_set.count()
-
-    max_num_of_participant = models.IntegerField(default=0)
 
     def __str__(self):
         return self.title
