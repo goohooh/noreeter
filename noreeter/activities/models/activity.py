@@ -17,10 +17,7 @@ class Activity(models.Model):
 
     content = models.TextField()
 
-    image = models.ImageField(
-        blank=True,
-        null=True,
-    )
+    image = models.ImageField()
 
     created_at = models.DateTimeField(auto_now_add=True, )
     updated_at = models.DateTimeField(auto_now=True, )
@@ -29,15 +26,10 @@ class Activity(models.Model):
         Interest,
     )
 
-    due_datetime = models.DateTimeField(
-        blank=True,
-        null=True,
-    )
+    due_datetime = models.DateTimeField()
 
     town = models.ForeignKey(
         Town,
-        blank=True,
-        null=True,
     )
 
     participant_set = models.ManyToManyField(
