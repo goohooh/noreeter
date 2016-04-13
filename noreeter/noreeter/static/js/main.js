@@ -120,17 +120,16 @@ jQuery(function ($) {
                 }
                 console.log(data);
             },
-            error: function (e) {
+            error: function (data,e) {
                 //var participants_list = $.parseJSON(data.participants);
                 $participate_button.html('인원이 가득 찼습니다').prop('disabled', true);
                 $participate_modal_text.html('아쉽게도 방금 모집인원이 가득 찼습니다.');
                 $participants.children('li').remove();
-                checkParticipationState();
-//                for ( var i = 0; i < participants_list.length; i++) {
-//                    var participant = participants_list[i];
-//                    $participants.append('<li>' + participant + '</li>')
-//                }
-            }
+                for ( var i = 0; i < participants_list.length; i++) {
+                    var participant = participants_list[i];
+                    $participants.append('<li>' + participant + '</li>')
+                }
+          }
         });
     }
 
