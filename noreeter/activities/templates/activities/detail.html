@@ -6,8 +6,12 @@
     <div class="panel panel-default">
       <!-- Default panel contents -->
       <div class="panel-heading"> 
-        <h2>{{ activity.title }}</h2>
-        <p>{{ activity.town.town_name }}</p>
+          <h2>{{ activity.title }}</h2>
+        {% for category in activity.category_set.all %}
+        <p>{{ category }} </p>
+        {% endfor %}
+        <p>주최자: {{ activity.host.username }}</p>
+        <p>모집인원: {{ activity.max_num_of_participant }}</p>
       </div>
       <div class="panel-body">
         <img class="detail_image" src="{{ activity.image.url }}" />
@@ -16,12 +20,15 @@
 
       <!-- List group -->
       <ul class="list-group">
-          <li class="list-group-item">
-            <p>모임시각: {{ activity.due_datetime }}</p>
-          </li>
-          <li class="list-group-item">
-            <p>모임종류: {{ activity.category_set.first }}</p>
-          </li>
+        <li class="list-group-item">
+          <p>모임시각: {{ activity.due_datetime }}</p>
+        </li>
+        {% if activity.host != request.user %}
+        <li class="list-group-item">
+          <button id="participate-button" class="btn btn-primary" data-toggle="modal" data-target="#complete-modal"></button>
+          <a href="" id="participants_list">참가자 목록<ul id="participants"></ul></a>
+        </li>
+        {% endif %}
       </ul>
     </div>
     <div class="panel panel-default">
@@ -50,4 +57,20 @@
     </div>
   </div>
 </div>
+<div id="complete-modal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">모임 참여 알림</h4>
+      </div>
+      <div class="modal-body">
+        <p id='participate-modal-text'></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 {% endblock %}

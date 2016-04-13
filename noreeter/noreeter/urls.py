@@ -8,6 +8,7 @@ from users.views import LoginView, LogoutView, SignupView, ProfileView, TownSetV
 from users.api.search_town import TownListAPIView
 from activities.views import ActivityListView, ActivityDetailView, ActivityCreateView
 from activities.views.comments import ActivityCommentCreateView
+from activities.api import ParticipateAPIView
 
 
 urlpatterns = [
@@ -19,6 +20,7 @@ urlpatterns = [
     url(r'^signup/$', SignupView.as_view(), name="signup"),
     url(r'^profile/(?P<slug>\w+)/$', ProfileView.as_view(), name="profile"),
 
+    url(r'^api/activities/(?P<pk>\d+)/participate/$', ParticipateAPIView.as_view(), name="api-participate"),
     url(r'^api/towns/$', TownListAPIView.as_view(), name="api-towns"),
     url(r'^town/set/$', TownSetView.as_view(), name="towns"),
 

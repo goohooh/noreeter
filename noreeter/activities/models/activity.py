@@ -17,10 +17,7 @@ class Activity(models.Model):
 
     content = models.TextField()
 
-    image = models.ImageField(
-        blank=True,
-        null=True,
-    )
+    image = models.ImageField()
 
     created_at = models.DateTimeField(auto_now_add=True, )
     updated_at = models.DateTimeField(auto_now=True, )
@@ -29,16 +26,26 @@ class Activity(models.Model):
         Interest,
     )
 
-    due_datetime = models.DateTimeField(
-        blank=True,
-        null=True,
-    )
+    due_datetime = models.DateTimeField()
 
     town = models.ForeignKey(
         Town,
-        blank=True,
-        null=True,
     )
+
+    participant_set = models.ManyToManyField(
+        settings.AUTH_USER_MODEL,
+        related_name="participate_set"
+    )
+
+    is_full = models.BooleanField(
+        default=False,
+    )
+
+    @property
+    def num_of_participant(self):
+        return self.participant_set.count()
+
+    max_num_of_participant = models.IntegerField(default=0)
 
     def __str__(self):
         return self.title
