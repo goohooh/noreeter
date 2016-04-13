@@ -23,7 +23,7 @@
            if ($first.is(':animated')) return;
            var len = $carousel.find('li').length;
            index = (index + 1) % len;
-           $first.animate({ 'margin-left': (-50 * index) + '%' }, function () {
+           $first.animate({ 'margin-left': (-25 * index) + '%' }, function () {
                if (index == len - 1) {
                    index = 0;
                    $first.css('margin-left', 0);
