@@ -22,7 +22,7 @@
         <a href="{% url "activity" activity.id %}">
           <h3>{{ activity.title }}</h3>
         </a>
-          <p>모임 시각: {{ activity.due_datetime }}</p>
+          <p>모임 시각: {{ activity.korean_due_datetime }}</p>
           <p><a href="{% url "activity" activity.id %}" class="btn btn-primary" role="button">자세히 보기</a>
       </div>
     </div>

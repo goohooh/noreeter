@@ -57,3 +57,12 @@ class Activity(models.Model):
                 "pk": self.id,
             }
         )
+
+    @property
+    def korean_due_datetime(self):
+        return '{month}월{day}일 {hour}시 {minute}분'.format(
+            month=self.due_datetime.month,
+            day=self.due_datetime.day,
+            hour=self.due_datetime.hour,
+            minute=self.due_datetime.minute,
+        )
