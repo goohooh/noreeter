@@ -1,7 +1,5 @@
 from rest_framework.generics import ListAPIView
 
-from rest_framework import filters
-
 from .serializers import TownListModelSerializer
 from towns.models import Town
 

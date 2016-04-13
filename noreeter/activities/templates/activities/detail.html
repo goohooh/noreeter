@@ -11,6 +11,7 @@
         <p>{{ category }} </p>
         {% endfor %}
         <p>주최자: {{ activity.host.username }}</p>
+        <p>모집인원: {{ activity.max_num_of_participant }}</p>
       </div>
       <div class="panel-body">
         <img class="detail_image" src="{{ activity.image.url }}" />
@@ -25,6 +26,7 @@
         {% if activity.host != request.user %}
         <li class="list-group-item">
           <button id="participate-button" class="btn btn-primary" data-toggle="modal" data-target="#complete-modal"></button>
+          <a href="" id="participants_list">참가자 목록<ul id="participants"></ul></a>
         </li>
         {% endif %}
       </ul>

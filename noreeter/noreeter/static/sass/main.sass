@@ -49,6 +49,29 @@
     width: 100% 
 
 
+
+#participants
+    position: absolute
+    z-index: 10
+    display: none
+    bottom: 100%
+    padding: 10px
+    width: 80px
+    background: #444
+    color: #fff
+    border-radius: 3px
+
+#participants_list
+    position: relative
+    display: inline-block
+    text-decoration: none
+    &:hover
+        text-decoration: none
+        #participants
+            display: block
+
+
+
 @media all and ( max-width: 749px )
     .greetings p
         display: none
