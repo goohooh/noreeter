@@ -1,4 +1,6 @@
-from django.forms import ModelForm
+from django import forms
+
+from datetimewidget.widgets import DateTimeWidget
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout
@@ -6,7 +8,18 @@ from crispy_forms.layout import Layout
 from activities.models import Activity
 
 
-class ActivityRegistForm(ModelForm):
+class ActivityRegistForm(forms.ModelForm):
+
+    dateTimeOptions = {
+        'format': 'yyyy-mm-dd hh:ii',
+        'autoclose': True,
+        'showMeridian': False,
+    }
+
+    due_datetime = forms.DateTimeField(
+        widget=DateTimeWidget(options=dateTimeOptions),
+    )
+
     class Meta:
         model = Activity
         exclude = [

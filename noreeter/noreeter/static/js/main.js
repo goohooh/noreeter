@@ -5,6 +5,9 @@ jQuery(function ($) {
         $participants = $('#participants'),
         $participate_modal_text = $('#participate-modal-text'),
         $participate_button = $('#participate-button');
+
+    var $due_datetime_next_btn = $('.datetimepicker .table-condensed .next i'),
+        $due_datetime_prev_btn = $('.datetimepicker .table-condensed .prev i');
     
     $participants_list.on('click', function(event){
         event.preventDefault();
@@ -181,5 +184,8 @@ jQuery(function ($) {
         duration: 0,
         autoStart: true
     });
+
+    $due_datetime_next_btn.removeClass('icon-arrow-right').addClass('fa fa-arrow-right');
+    $due_datetime_prev_btn.removeClass('icon-arrow-left').addClass('fa fa-arrow-left');
 
 });
