@@ -70,3 +70,5 @@ class LoginForm(forms.ModelForm):
         super(LoginForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_tag = False
+        self.fields['username'].label = '유저 아이디'
+        self.fields['password'].label = '비밀번호'
