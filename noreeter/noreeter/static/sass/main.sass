@@ -1,5 +1,7 @@
 @import "partials/header"
 @import "partials/footer"
+@import "partials/users"
+@import "partials/activities"
 
 @import "features/carousel"
 @import "features/common"
@@ -7,6 +9,16 @@
 
 #main
     padding-top: 70px
+
+.jumbotron
+    height: 400px
+    background-image: url('http://cdn.psfk.com/wp-content/uploads/2014/12/slide_369636_4249906_free.jpg')
+    background:
+        position: center
+        size: cover
+        repeat: no-repeat
+
+
 
 .thumbnail
     position: relative
@@ -31,7 +43,35 @@
     margin: 10px 0 10px 0
     padding: 10px 0 10px 0
     border-top: 1px solid #eee
+    white-space: pre
     
+
+.panel-heading
+    position: relative
+
+.media-body
+    padding-left: 10px
+    border-left: 2px solid #ccc
+
+.activity_detail_title
+    display: inline-block
+    margin-bottom: 18px
+
+.activity_detail_category
+    position: absolute
+    right: 15px
+    display: inline
+    margin-bottom: 6px
+    color: #777
+
+.activity_detail_max_num_of_participant
+    margin-bottom: 0
+    color: #aaa
+
+.detail_profile_image
+    width: auto
+    height: 77px
+
 .table
     td.comment_table_data
         border:
@@ -46,10 +86,13 @@
 .input_comment
     width: 80%
 
+.list-group-item::after
+    clear: both
+    display: block
+    content: ''
+
 #id_result
     width: 100% 
-
-
 
 #participants
     position: absolute
@@ -63,15 +106,24 @@
     border-radius: 3px
 
 #participants_list
+    vertical-align: -12px
     position: relative
     display: inline-block
+    padding-left: 5px
     text-decoration: none
     &:hover
         text-decoration: none
         #participants
             display: block
 
+#current_participants
+    display: inline
+    padding-left: 5px
+    vertical-align: -12px
+    color: #ccc
 
+#participate-button
+    float: right
 
 @media all and ( max-width: 749px )
     .greetings p

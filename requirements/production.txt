@@ -3,3 +3,4 @@ Pillow
 django-pipeline
 django-crispy-forms
 djangorestframework
+django-datetime-widget

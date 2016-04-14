@@ -6,12 +6,20 @@
     <div class="panel panel-default">
       <!-- Default panel contents -->
       <div class="panel-heading"> 
-          <h2>{{ activity.title }}</h2>
-        {% for category in activity.category_set.all %}
-        <p>{{ category }} </p>
-        {% endfor %}
-        <p>주최자: {{ activity.host.username }}</p>
-        <p>모집인원: {{ activity.max_num_of_participant }}</p>
+        <div class="media">
+          <div class="media-left">
+              <a href="{% url "profile" activity.host.username %}">
+                <img class="media-object detail_profile_image" src="{{ activity.host.profile_image.url }}" alt="{{ activity.host.username }}" />
+            </a>
+          </div>
+          <div class="media-body">
+            <h1 class="media-heading activity_detail_title">{{ activity.title }}</h1>
+            {% for category in activity.category_set.all %}
+            <p class="activity_detail_category">{{ category }} </p>
+            {% endfor %}
+            <p class="activity_detail_max_num_of_participant">모집인원 : {{ activity.max_num_of_participant }}명</p>
+          </div>
+        </div>
       </div>
       <div class="panel-body">
         <img class="detail_image" src="{{ activity.image.url }}" />
@@ -21,14 +29,15 @@
       <!-- List group -->
       <ul class="list-group">
         <li class="list-group-item">
-          <p>모임시각: {{ activity.due_datetime }}</p>
+          <p>모임시각 : {{ activity.korean_due_datetime }}</p>
         </li>
-        {% if activity.host != request.user %}
         <li class="list-group-item">
-          <button id="participate-button" class="btn btn-primary" data-toggle="modal" data-target="#complete-modal"></button>
           <a href="" id="participants_list">참가자 목록<ul id="participants"></ul></a>
-        </li>
+          <p id="current_participants"></p>
+        {% if activity.host != request.user %}
+          <button id="participate-button" class="btn btn-primary" data-toggle="modal" data-target="#complete-modal"></button>
         {% endif %}
+        </li>
       </ul>
     </div>
     <div class="panel panel-default">

@@ -16,8 +16,8 @@ class UserRegistForm(forms.ModelForm):
             'username',
             'password',
             'email',
-            'profile_image',
             'profile',
+            'profile_image',
         ]
 
     def __init__(self, *args, **kwargs):
@@ -27,8 +27,8 @@ class UserRegistForm(forms.ModelForm):
         self.fields['username'].label = '이용자 아이디'
         self.fields['password'].label = '비밀번호'
         self.fields['email'].label = '이메일'
-        self.fields['profile_image'].label = '프로필 이미지'
         self.fields['profile'].label = '자기 소개'
+        self.fields['profile_image'].label = '프로필 이미지'
         self.helper.layout = Layout(
             'username',
             'password',
@@ -70,3 +70,5 @@ class LoginForm(forms.ModelForm):
         super(LoginForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_tag = False
+        self.fields['username'].label = '유저 아이디'
+        self.fields['password'].label = '비밀번호'
