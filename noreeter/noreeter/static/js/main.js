@@ -133,7 +133,7 @@ jQuery(function ($) {
                 console.log(data);
             },
             error: function (data,e) {
-                //var participants_list = $.parseJSON(data.participants);
+                var participants_list = $.parseJSON(data.participants);
                 $participate_button.html('인원이 가득 찼습니다').prop('disabled', true);
                 $participate_modal_text.html('아쉽게도 방금 모집인원이 가득 찼습니다.');
                 $participants.children('li').remove();
