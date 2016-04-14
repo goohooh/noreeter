@@ -17,7 +17,7 @@ Home
     <a href="#next" class="next" title="다음 슬라이드"><i class="fa fa-arrow-circle-right"></i></a>
     <ul>
         {% for activity in activities %}
-        <li><a class="carousel_image" href="{% url "activity" activity.id %}" style="background-image:url({{ activity.image.url }})"></a></li>
+        <li class="carousel_li"><a class="carousel_image" href="{% url "activity" activity.id %}" style="background-image:url({{ activity.image.url }})"></a></li>
         {% endfor %}
     </ul>
 </div>
