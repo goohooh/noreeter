@@ -27,9 +27,9 @@
         {% for activity in user.activity_set.all %}
         <li>
         {% for category in activity.category_set.all %} 
-        <span>{{ category }}</span>
+        <span>[{{ category }}] </span>
         {% endfor %}
-        | {{ activity.title }}</li>
+        {{ activity.title }}</li>
         {% endfor %}
         </ul>
       </div>
