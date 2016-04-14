@@ -4,11 +4,18 @@ from django.db import models
 from towns.models import Town
 
 
+def generate_filename(self, filename):
+        url = "profile_images/{username}/{file_name}".format(
+            username=self.username,
+            file_name=filename,
+        )
+        return url
+
+
 class User(AbstractUser):
 
     profile_image = models.ImageField(
-        blank=True,
-        null=True,
+        upload_to=generate_filename
     )
 
     profile = models.TextField()

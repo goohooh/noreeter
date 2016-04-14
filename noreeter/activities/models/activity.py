@@ -18,7 +18,9 @@ class Activity(models.Model):
 
     content = models.TextField()
 
-    image = models.ImageField()
+    image = models.ImageField(
+        upload_to='images/%y/%m/%d',
+    )
 
     created_at = models.DateTimeField(auto_now_add=True, )
     updated_at = models.DateTimeField(auto_now=True, )
