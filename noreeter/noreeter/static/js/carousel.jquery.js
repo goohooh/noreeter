@@ -9,14 +9,20 @@
        //default + option setting
        options = $.extend({}, defaults, options);
        var $carousel = this, index = 0, interval = options.interval;
-       var $prev = $carousel.find('.prev'), $next = $carousel.find('.next');
+       var $next = $carousel.find('.next');
        var $first = $carousel.find('ul li:first-child');
        var $second = $carousel.find('ul li:nth-child(2)');
+       var $third = $carousel.find('ul li:nth-child(3)');
+       var $fourth = $carousel.find('ul li:nth-child(4)');
 
        $carousel.find('ul').append($carousel.find('li'));
        $carousel.find('ul').append($first.clone());
        $carousel.find('ul').append($carousel.find('li'));
        $carousel.find('ul').append($second.clone());
+       $carousel.find('ul').append($carousel.find('li'));
+       $carousel.find('ul').append($third.clone());
+       $carousel.find('ul').append($carousel.find('li'));
+       $carousel.find('ul').append($fourth.clone());
 
        $next.on('click', function (event) {
            event.preventDefault();
