@@ -19,17 +19,17 @@ STATICFILES_FINDERS = (
 
 PIPELINE = {
     'STYLESHEETS': {
-        'main': {
+        'style': {
             'source_filenames': (
-                'css/*.css',
+                'sass/main.sass',
             ),
-            'Output_filename': 'css/noreeter.css',
+            'output_filename': 'css/noreeter.css',
         },
         'vendor': {
             'source_filenames': (
-                'css/vendor/bootstrap.min.css',
+                'css/vendor/*.css',
             ),
-            'Output_filename': 'css/vendor.css',
+            'output_filename': 'css/vendor.css',
         },
     },
     'JAVASCRIPT': {
@@ -39,11 +39,23 @@ PIPELINE = {
             ),
             'output_filename': 'js/noreeter.js',
         },
+        'library': {
+            'source_filenames': (
+                'js/vendor/jquery-1.12.3.min.js',
+            ),
+            'output_filename': 'js/library.js',
+        },
         'vendor': {
             'source_filenames': (
                 'js/vendor/bootstrap.min.js',
             ),
-            'Output_filename': 'js/vendor.js',
-        },
+            'output_filename': 'js/vendor.js',
+        }
+    },
+    'COMPILERS': {
+        'pipeline.compilers.sass.SASSCompiler',
     },
 }
+
+PIPELINE['CSS_COMPRESSOR'] = 'pipeline.compressors.NoopCompressor'
+PIPELINE['JS_COMPRESSOR'] = 'pipeline.compressors.NoopCompressor'
