@@ -7,6 +7,7 @@
   <title>{% block title %}{% endblock %} | Noreeter</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
   {% javascript 'library' %}
+  {% javascript 'vendor' %}
   {% stylesheet 'vendor' %}
   {% stylesheet 'style' %}
   {# <script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script> #}
@@ -20,7 +21,6 @@
   </main>
 
   {% include "partials/footer.html" %}
-  {% javascript 'vendor' %}
   {% javascript 'main' %}
 </body>
 </html>
