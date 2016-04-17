@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'towns',
 
     'pipeline',
+    'storages',
     'crispy_forms',
     'rest_framework',
     'datetimewidget',

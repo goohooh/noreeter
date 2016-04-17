@@ -4,3 +4,7 @@ django-pipeline
 django-crispy-forms
 djangorestframework
 django-datetime-widget
+django-storages-redux
+boto
+psycopg2
+dj-database-url
