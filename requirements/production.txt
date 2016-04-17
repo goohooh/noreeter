@@ -6,3 +6,5 @@ djangorestframework
 django-datetime-widget
 django-storages-redux
 boto
+django psycopg2
+dj-database-url
